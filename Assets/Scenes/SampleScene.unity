@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 956579305}
   - component: {fileID: 956579307}
   - component: {fileID: 956579306}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1697,7 +1697,7 @@ GameObject:
   - component: {fileID: 1161839241}
   - component: {fileID: 1161839240}
   - component: {fileID: 1161839239}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2452,11 +2452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6917803958810850385, guid: 91ff8f91b96001c4681a0e8762279443, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9583102
+      value: -1.34
       objectReference: {fileID: 0}
     - target: {fileID: 6917803958810850385, guid: 91ff8f91b96001c4681a0e8762279443, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21414177
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6917803958810850385, guid: 91ff8f91b96001c4681a0e8762279443, type: 3}
       propertyPath: m_LocalPosition.z
