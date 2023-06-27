@@ -1,4 +1,6 @@
-﻿namespace SpellBuilder
+﻿using SpellBuilder.Bases;
+
+namespace SpellBuilder
 {
     public sealed class SpellBuilder
     {
