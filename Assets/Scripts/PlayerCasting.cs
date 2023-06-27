@@ -7,6 +7,8 @@ public class PlayerCasting : MonoBehaviour
     private Camera _mainCamera;
     private Vector3 _mousePosition;
 
+    [SerializeField] private GameObject caster; // from where we will cast spells
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +21,9 @@ public class PlayerCasting : MonoBehaviour
     {
         _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        var diff = _mousePosition - transform.position;
+        var diff = _mousePosition - caster.transform.position;
         var rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        caster.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
     }
 }
