@@ -20,7 +20,7 @@ public class PlayerCasting : MonoBehaviour
         _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         var diff = _mousePosition - transform.position;
-        var rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90;
+        var rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
     }
