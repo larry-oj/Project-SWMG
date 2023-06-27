@@ -370,7 +370,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8653870422117901600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 4935702139066670235}
+  castObject: {fileID: 5656725521206168841, guid: ece4eedd13088ec48b219361bad5fc13, type: 3}
 --- !u!1 &7719233455298338720
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +579,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63ebe6720d5833546805d1a488e3e22a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
