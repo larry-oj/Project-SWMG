@@ -1,50 +1,98 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Spells
 {
-    public sealed class SpellBuilder
+    public class SpellBuilder
     {
-        private readonly GameObject _spell; // resulting spell
-        private readonly SpellController _spellController; // spells controller
-        private readonly SpellSpriteBuilder _spriteBuilder;
+        private readonly GameObject _spell;
+        private readonly SpellController _spellController;
         
-        private bool _isPrimaryElementSet = false;
-        private bool _isSecondaryElementSet = false;
+        private GameObject _base;
+        private GameObject _primary;
+        private GameObject _secondary;
 
-        public SpellBuilder(SpellController.Bases @base)
+        public SpellBuilder(GameObject caster, SpellController.SpellType type)
         {
-            _spell = GameObject.Instantiate(Resources.Load<GameObject>($"Prefabs/{@base}"));
-            _spellController = _spell.AddComponent<SpellController>();
-            _spellController.Base = @base;
-            _spriteBuilder = new SpellSpriteBuilder(_spell);
+            _spell = new GameObject("Spell", typeof(SpellController))
+            {
+                transform =
+                {
+                    position = caster.transform.GetChild(0).position,
+                    rotation = caster.transform.rotation
+                }
+            };
+            _spellController = _spell.GetComponent<SpellController>();
+            
+            _spellController.Type = type;
+            var @base = Object.Instantiate(Resources.Load($"Prefabs/{type}Base"), _spell.transform) as GameObject;
+            @base!.name = $"{type}Base";
+            _base = @base;
         }
-
+        
         public SpellBuilder WithName(string name)
         {
             _spellController.Name = name;
+            _spell.name = name;
             return this;
         }
 
-        public SpellBuilder AddElement(SpellController.Elemets element)
+        public SpellBuilder WithEffect(SpellController.SpellEffect effect)
         {
-            if (!_isPrimaryElementSet)
+            _spellController.Effect = effect;
+            return this;
+        }
+        
+        public SpellBuilder AddElement(SpellController.SpellElement element)
+        {
+            _spellController.Elements.Add(element);
+
+            if (_spellController.Elements.Count == 1)
             {
-                _spellController.PrimaryElement = element;
-                _spriteBuilder.ApplyPrimaryElement(element);
-                _isPrimaryElementSet = true;
-            }
-            else if (!_isSecondaryElementSet)
-            {
-                _spellController.SecondaryElement = element;
-                _spriteBuilder.ApplySecondaryElement(element);
-                _isSecondaryElementSet = true;
+                var primary = Object.Instantiate(Resources.Load($"Prefabs/{_spellController.Type}Primary"), _spell.transform) as GameObject;
+                primary!.name = $"{element}Primary";
+                _primary = primary;
+                SetElementColor(_primary, element);
             }
             else
             {
-                Debug.LogError("Spell can only have two elements");
+                var secondary = Object.Instantiate(Resources.Load($"Prefabs/{_spellController.Type}Secondary"), _spell.transform) as GameObject;
+                secondary!.name = $"{element}Secondary";
+                _secondary = secondary;
+                SetElementColor(_secondary, element, false);
             }
 
             return this;
+        }
+        
+        public SpellBuilder WithDamage(int damage)
+        {
+            _spellController.Damage = damage;
+            return this;
+        }
+        
+        public SpellBuilder WithSpeed(float speed)
+        {
+            _spellController.Speed = speed;
+            return this;
+        }
+        
+        public SpellBuilder WithRange(float range)
+        {
+            _spellController.Range = range;
+            return this;
+        }
+        
+        private void SetElementColor(GameObject layer, SpellController.SpellElement element, bool isPrimary = true)
+        {
+            layer.GetComponent<SpriteRenderer>().color = element switch
+            {
+                SpellController.SpellElement.Fire => isPrimary ? Color.red : new Color32(245,178,39,255),
+                SpellController.SpellElement.Water => isPrimary ? Color.blue : new Color32(137,207,240,255),
+                SpellController.SpellElement.Earth => isPrimary ? new Color32(111, 72, 60, 255) : Color.green,
+                SpellController.SpellElement.Air => isPrimary ? Color.white : Color.cyan,
+                _ => new Color32(0, 0, 0, 0)
+            };
         }
         
         public GameObject Build()

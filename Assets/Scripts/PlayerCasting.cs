@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Spells;
 using UnityEngine;
 
@@ -14,10 +12,14 @@ public class PlayerCasting : MonoBehaviour
 
     [Header("PH Spell")]
     [SerializeField] private string spellName;
-    [SerializeField] private SpellController.Bases spellBase;
-    [SerializeField] private SpellController.Elemets primaryElement;
-    [SerializeField] private SpellController.Elemets secondaryElement;
-    
+    [SerializeField] private SpellController.SpellType spellType;
+    [SerializeField] private SpellController.SpellElement spellPrimaryElement;
+    [SerializeField] private SpellController.SpellElement spellSecondaryElement;
+    [SerializeField] private SpellController.SpellEffect spellEffect;
+    [SerializeField] private int spellDamage;
+    [SerializeField] private float spellSpeed;
+    [SerializeField] private float spellRange;
+
     void Start()
     {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera")
@@ -37,10 +39,17 @@ public class PlayerCasting : MonoBehaviour
 
     void OnFire()
     {
-        new SpellBuilder(spellBase)
+        var spell = new SpellBuilder(caster, spellType)
             .WithName(spellName)
-            .AddElement(primaryElement)
-            .AddElement(secondaryElement)
+            .AddElement(spellPrimaryElement)
+            .AddElement(spellSecondaryElement)
+            .WithEffect(spellEffect)
+            .WithDamage(spellDamage)
+            .WithSpeed(spellSpeed)
+            .WithRange(spellRange)
             .Build();
+        
+
+        // new SpellBuilder().Build();
     }
 }
