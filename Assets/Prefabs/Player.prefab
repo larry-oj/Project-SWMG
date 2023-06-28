@@ -504,7 +504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 4935702139066670235}
-  castObject: {fileID: 5656725521206168841, guid: ece4eedd13088ec48b219361bad5fc13, type: 3}
+  spellName: Fireball
+  spellBase: 0
+  primaryElement: 2
+  secondaryElement: 0
 --- !u!1 &7719233455298338720
 GameObject:
   m_ObjectHideFlags: 0
