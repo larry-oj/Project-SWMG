@@ -32,22 +32,5 @@ namespace Spells
         public int Damage { get; set; }
         public float Speed { get; set; }
         public float Range { get; set; }
-        
-        // internal 
-        private GameObject _spell;
-        private SpriteRenderer _outlineRenderer;
-        private SpriteRenderer _primaryRenderer;
-        private SpriteRenderer _secondaryRenderer;
-
-        void Start()
-        {
-            _spell = gameObject;
-            _outlineRenderer = _spell.transform.GetChild(0)
-                .GetComponent<SpriteRenderer>();
-            _primaryRenderer = _spell.transform.GetChild(1)
-                .GetComponent<SpriteRenderer>();
-            _secondaryRenderer = _spell.transform.GetChild(2)
-                .GetComponent<SpriteRenderer>();
-        }
     }
 }

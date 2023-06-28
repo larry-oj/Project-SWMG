@@ -8,26 +8,18 @@ namespace Spells
         private readonly GameObject _spell;
         private readonly SpellController _spellController;
         
-        private GameObject _base;
         private GameObject _primary;
         private GameObject _secondary;
 
         public SpellBuilder(GameObject caster, SpellController.SpellType type)
         {
-            _spell = new GameObject("Spell", typeof(SpellController))
-            {
-                transform =
-                {
-                    position = caster.transform.GetChild(0).position,
-                    rotation = caster.transform.rotation
-                }
-            };
-            _spellController = _spell.GetComponent<SpellController>();
+            var prefab = Resources.Load($"Prefabs/{type}Base");
+            var position = caster.transform.GetChild(0).position;
+            var rotation = caster.transform.rotation;
+            _spell = Object.Instantiate(prefab as GameObject, position, rotation);
             
+            _spellController = _spell.GetComponent<SpellController>();
             _spellController.Type = type;
-            var @base = Object.Instantiate(Resources.Load($"Prefabs/{type}Base"), _spell.transform) as GameObject;
-            @base!.name = $"{type}Base";
-            _base = @base;
         }
         
         public SpellBuilder WithName(string name)
