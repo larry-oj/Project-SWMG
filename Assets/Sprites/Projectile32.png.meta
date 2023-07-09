@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5bdb0081856ec04591e4e32ec059d14
+guid: ed7597fbf1ed58643b04a1190ee5dbf7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,64 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlaceholderProjectile_0
+      name: Projectile32_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 5
-        height: 5
+        x: 11
+        y: 11
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5277c15c122273744baf4627ebdf8217
-      internalID: -1712515878
+      spriteID: 97ecb1c070bd5bd4bb5a06ca930a250d
+      internalID: 1955676212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlaceholderProjectile_1
+      name: Projectile32_1
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 5
-        height: 5
+        x: 43
+        y: 11
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38becad47bd50f440a48d8df20ac3206
-      internalID: -74174414
+      spriteID: 47b0159094ad0b746b0ed61e3b994dfe
+      internalID: 1033389760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlaceholderProjectile_2
+      name: Projectile32_2
       rect:
         serializedVersion: 2
-        x: 10
-        y: 0
-        width: 5
-        height: 5
+        x: 76
+        y: 11
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db5f05bf58f27f742960a1b7be08fd72
-      internalID: 461788045
+      spriteID: 63329e1e1c6ce70438d08b1e0a56b0ca
+      internalID: -1164844272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile32_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 10
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b4143d4706c2b419b7ebbb80f10a5f
+      internalID: -66603879
       vertices: []
       indices: 
       edges: []
@@ -178,9 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlaceholderProjectile_0: -1712515878
-      PlaceholderProjectile_1: -74174414
-      PlaceholderProjectile_2: 461788045
+      Projectile32_0: 1955676212
+      Projectile32_1: 1033389760
+      Projectile32_2: -1164844272
+      Projectile32_3: -66603879
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

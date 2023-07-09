@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Spells
 {
-    public class SpellBuilder
+    public sealed class SpellBuilder
     {
         private readonly GameObject _spell;
         private readonly SpellController _spellController;
